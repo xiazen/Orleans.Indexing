@@ -47,6 +47,18 @@
     <Compile Include="CancellationTests\GrainCancellationTokenTests.cs" />
     <Compile Include="ClientConnectionTests\ClientDisconnectionEventTests.cs" />
     <Compile Include="CollectionFixtures.cs" />
+    <Compile Include="IndexingTests\ChainedBucketIndexingTestsSingleSilo.cs" />
+    <Compile Include="IndexingTests\ChainedBucketIndexingTestsTwoSilos.cs" />
+    <Compile Include="IndexingTests\FaultTolerantIndexingTestsSingleSilo.cs" />
+    <Compile Include="IndexingTests\LazyIndexingTestsTwoSilos.cs" />
+    <Compile Include="IndexingTests\SimpleIndexingTestsSingleSilo.cs" />
+    <Compile Include="IndexingTests\StorageManagedIndexingTests.cs" />
+    <Compile Include="IndexingTests\NoIndexingTests.cs" />
+    <Compile Include="IndexingTests\ActiveGrainEnumerationTests.cs" />
+    <Compile Include="IndexingTests\FaultTolerantIndexingTestsTwoSilos.cs" />
+    <Compile Include="IndexingTests\IndexingTestUtils.cs" />
+    <Compile Include="IndexingTests\LazyIndexingTestsSingleSilo.cs" />
+    <Compile Include="IndexingTests\SimpleIndexingTestsTwoSilos.cs" />
     <Compile Include="EventSourcingTests\AccountGrainTests.cs" />
     <Compile Include="EventSourcingTests\ChatGrainTests.cs" />
     <Compile Include="EventSourcingTests\CountersGrainPerfTests.cs" />
@@ -141,6 +153,10 @@
     <ProjectReference Include="..\..\src\OrleansCodeGenerator\OrleansCodeGenerator.csproj">
       <Project>{8d937706-f6da-4d33-b0a9-24a260bd3080}</Project>
       <Name>OrleansCodeGenerator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\OrleansIndexing\OrleansIndexing.csproj">
+      <Project>{1bfb2b84-9d88-4e32-bf20-3702f459e386}</Project>
+      <Name>OrleansIndexing</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\src\OrleansEventSourcing\OrleansEventSourcing.csproj">
       <Project>{cf7ee78b-39e1-4660-beaf-0e2606098f8c}</Project>

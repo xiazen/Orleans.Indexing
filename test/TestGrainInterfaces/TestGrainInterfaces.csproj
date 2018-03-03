@@ -52,6 +52,24 @@
     <Compile Include="EventSourcing\ISeatReservationGrain.cs" />
     <Compile Include="GetGrainInterfaces.cs" />
     <Compile Include="IActivateDeactivateTestGrain.cs" />
+    <Compile Include="IPlayer1Grain.cs" />
+    <Compile Include="IPlayer1GrainNonFaultTolerant.cs" />
+    <Compile Include="IPlayer2Grain.cs" />
+    <Compile Include="IPlayer2GrainNonFaultTolerant.cs" />
+    <Compile Include="IPlayer1GrainNonFaultTolerantLazy.cs" />
+    <Compile Include="IPlayer2GrainNonFaultTolerantLazy.cs" />
+    <Compile Include="IPlayer3Grain.cs" />
+    <Compile Include="IPlayer3GrainNonFaultTolerantLazy.cs" />
+    <Compile Include="IPlayer3GrainNonFaultTolerant.cs" />
+    <Compile Include="IPlayer4Grain.cs" />
+    <Compile Include="IPlayer4GrainNonFaultTolerant.cs" />
+    <Compile Include="IPlayer4rainNonFaultTolerantLazy.cs" />
+    <Compile Include="IPlayerChain1Grain.cs" />
+    <Compile Include="IPlayerDocDBGrain.cs" />
+    <Compile Include="IPlayer5Grain.cs" />
+    <Compile Include="IPlayer5GrainNonFaultTolerant.cs" />
+    <Compile Include="IPlayer5rainNonFaultTolerantLazy.cs" />
+    <Compile Include="IPlayerGrain.cs" />
     <Compile Include="IChainedGrain.cs" />
     <Compile Include="ICircularStateTestGrain.cs" />
     <Compile Include="IActivateDeactivateWatcherGrain.cs" />
@@ -137,6 +155,10 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\src\OrleansIndexing\OrleansIndexing.csproj">
+      <Project>{1BFB2B84-9D88-4E32-BF20-3702F459E386}</Project>
+      <Name>OrleansIndexing</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\src\OrleansRuntime\OrleansRuntime.csproj">
       <Project>{6ff2004c-cdf8-479c-bf27-c6bfe8ef93e0}</Project>
       <Name>OrleansRuntime</Name>

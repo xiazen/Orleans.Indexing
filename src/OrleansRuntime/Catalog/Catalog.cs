@@ -746,13 +746,18 @@ namespace Orleans.Runtime
 
         private void SetupStorageProvider(Type grainType, ActivationData data)
         {
-            var grainTypeName = grainType.FullName;
+            data.StorageProvider = SetupStorageProvider(grainType);
+        }
+
+        internal IStorageProvider SetupStorageProvider(Type grainInstanceType)
+        {
+            IStorageProvider provider;
+            string grainTypeName = grainInstanceType.FullName;
 
             // Get the storage provider name, using the default if not specified.
-            var attr = grainType.GetTypeInfo().GetCustomAttributes<StorageProviderAttribute>(true).FirstOrDefault();
-            var storageProviderName = attr != null ? attr.ProviderName : Constants.DEFAULT_STORAGE_PROVIDER_NAME;
-
-            IStorageProvider provider;
+            var attrs = grainInstanceType.GetCustomAttributes(typeof(StorageProviderAttribute), true);
+            var attr = attrs.FirstOrDefault() as StorageProviderAttribute;
+            string storageProviderName = attr != null ? attr.ProviderName : Constants.DEFAULT_STORAGE_PROVIDER_NAME;
             if (storageProviderManager == null || storageProviderManager.GetNumLoadedProviders() == 0)
             {
                 var errMsg = string.Format("No storage providers found loading grain type {0}", grainTypeName);
@@ -778,7 +783,6 @@ namespace Orleans.Runtime
                     throw new BadProviderConfigException(errMsg);
                 }
             }
-            data.StorageProvider = provider;
 
             if (logger.IsVerbose2)
             {
@@ -786,6 +790,7 @@ namespace Orleans.Runtime
                     storageProviderName, grainTypeName);
                 logger.Verbose2(ErrorCode.Provider_CatalogStorageProviderAllocated, msg);
             }
+            return provider;
         }
 
         private ILogViewAdaptorFactory SetupLogConsistencyProvider(Grain grain, Type grainType, ActivationData data)

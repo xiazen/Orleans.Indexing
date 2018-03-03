@@ -54,6 +54,25 @@
     </Compile>
     <Compile Include="AsyncSimpleGrain.cs" />
     <Compile Include="CatalogTestGrain.cs" />
+    <Compile Include="Player1Grain.cs" />
+    <Compile Include="Player1GrainNonFaultTolerantLazy.cs" />
+    <Compile Include="Player2Grain.cs" />
+    <Compile Include="Player2GrainNonFaultTolerantLazy.cs" />
+    <Compile Include="Player3Grain.cs" />
+    <Compile Include="Player3GrainNonFaultTolerantLazy.cs" />
+    <Compile Include="Player4Grain.cs" />
+    <Compile Include="Player4GrainNonFaultTolerant.cs" />
+    <Compile Include="Player4GrainNonFaultTolerantLazy.cs" />
+    <Compile Include="PlayerChain1Grain.cs" />
+    <Compile Include="PlayerDocDBGrain.cs" />
+    <Compile Include="Player5Grain.cs" />
+    <Compile Include="Player5GrainNonFaultTolerant.cs" />
+    <Compile Include="Player5GrainNonFaultTolerantLazy.cs" />
+    <Compile Include="PlayerGrain.cs" />
+    <Compile Include="PlayerGrainNonFaultTolerant.cs" />
+    <Compile Include="Player3GrainNonFaultTolerant.cs" />
+    <Compile Include="Player2GrainNonFaultTolerant.cs" />
+    <Compile Include="Player1GrainNonFaultTolerant.cs" />
     <Compile Include="ChainedGrain.cs" />
     <Compile Include="ClusterTestGrains.cs" />
     <Compile Include="CircularStateTestGrain.cs" />
@@ -139,6 +158,10 @@
     <ProjectReference Include="..\..\src\OrleansEventSourcing\OrleansEventSourcing.csproj">
       <Project>{cf7ee78b-39e1-4660-beaf-0e2606098f8c}</Project>
       <Name>OrleansEventSourcing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\OrleansIndexing\OrleansIndexing.csproj">
+      <Project>{1bfb2b84-9d88-4e32-bf20-3702f459e386}</Project>
+      <Name>OrleansIndexing</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\src\OrleansProviders\OrleansProviders.csproj">
       <Project>{0054DB14-2A92-4CC0-959E-A2C51F5E65D4}</Project>

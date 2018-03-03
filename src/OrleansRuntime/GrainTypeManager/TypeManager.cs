@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Orleans.Runtime.Providers;
 using Orleans.Streams;
 using Orleans.Runtime.Scheduler;
 
@@ -55,6 +56,25 @@ namespace Orleans.Runtime
         public Task<GrainInterfaceMap> GetSiloTypeCodeMap()
         {
             return Task.FromResult(grainTypeManager.GetTypeCodeMap());
+        }
+
+        /// <summary>
+        /// This method returns a dictionary of grain interface types to their
+        /// corresponding index information.
+        /// </summary>
+        /// <returns> A dictionary of grain interface types to their
+        /// corresponding index information. The index information is
+        /// a dictionary from index IDs defined on a grain interface to
+        /// a triple. The triple consists of: 1) the index object (that
+        /// implements IndexInterface, 2) the IndexMetaData object for
+        /// this index, and 3) the IndexUpdateGenerator instance for this index.
+        /// This triple is untyped, because IndexInterface, IndexMetaData
+        /// and IndexUpdateGenerator types are not visible in this project.
+        /// 
+        /// If the OrleansIndexing project is not available, this dictionary will be empty.</returns>
+        public Task<IDictionary<Type, IDictionary<string, Tuple<object, object, object>>>> GetIndexes()
+        {
+            return Task.FromResult(grainTypeManager.IndexingInitialize());
         }
 
         public Task<ImplicitStreamSubscriberTable> GetImplicitStreamSubscriberTable(SiloAddress silo)
